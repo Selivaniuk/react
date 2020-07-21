@@ -7,11 +7,21 @@ function fetchInstances() {
 
 async function createInstances() {
   const r = await fetchInstances();
-  const q =r.dt_update;
+  const q = r.dt_update;
+
+  const parent = document.getElementById('table');
+  
+  
+
+  parent.innerHTML = "";
+
   document.getElementById("dt").innerHTML = q;
+
   r.services.forEach(function(e) {
     addInstance(e);
   })
+
+  //setInterval(createInstances, 10000);
 }
 
 
@@ -19,29 +29,46 @@ async function createInstances() {
 function addInstance(instanceData) {
   const parent = document.getElementById('table');
   const row = document.createElement('tr');
+  //console.log(instanceData);
+  
   
 
   row.className = 'table_row';
   //console.log(instanceData.status);
-
+  let num = '';
   let color = '';
+  let arr = new Array();
   Object.values(instanceData.status).forEach(function(value) {
     if (value.includes('[OK]')) {
       color = 'green';
+      num = '1 ';
+
+      
+
     };
   });
   Object.values(instanceData.status).forEach(function(value) {
     if (value.includes('[WARNING]')) {
       color = 'yellow';
+      num = '2 '; 
+      arr.push(num + instanceData.name);
     };
   });
   Object.values(instanceData.status).forEach(function(value) {
     if (value.includes('[FAIL]')) {
       color = 'red';
+      num = '3 ';
+      arr.push(num + instanceData.name);
+      
+      
     };
+   
+    arr.sort();
+    console.log(arr);
+    
   });
   row.classList.add(color);
-
+  
   let instanceStatus = "";
   for (const [key, value] of Object.entries(instanceData.status)) {
     instanceStatus += `<p>${key}: ${value}</p>`;
@@ -61,5 +88,11 @@ function init() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  setInterval(init, 1000);
+  init();
 })
+
+
+// fetchInstances
+// createNewData
+// sortByStatus
+// drawInstances

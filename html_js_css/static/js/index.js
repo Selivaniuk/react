@@ -37,7 +37,6 @@ function addInstance(instanceData) {
   //console.log(instanceData.status);
   let num = '';
   let color = '';
-  let arr = new Array();
   Object.values(instanceData.status).forEach(function(value) {
     if (value.includes('[OK]')) {
       color = 'green';
@@ -50,21 +49,16 @@ function addInstance(instanceData) {
   Object.values(instanceData.status).forEach(function(value) {
     if (value.includes('[WARNING]')) {
       color = 'yellow';
-      num = '2 '; 
-      arr.push(num + instanceData.name);
     };
   });
   Object.values(instanceData.status).forEach(function(value) {
     if (value.includes('[FAIL]')) {
       color = 'red';
       num = '3 ';
-      arr.push(num + instanceData.name);
       
       
     };
    
-    arr.sort();
-    console.log(arr);
     
   });
   row.classList.add(color);

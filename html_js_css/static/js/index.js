@@ -7,19 +7,24 @@ function fetchInstances() {
 
 async function createInstances() {
   const r = await fetchInstances();
+  const q =r.dt_update;
+  document.getElementById("dt").innerHTML = q;
 
+  console.log(q);
   r.services.forEach(function(e) {
     addInstance(e);
   })
 }
 
 
+
 function addInstance(instanceData) {
   const parent = document.getElementById('table');
   const row = document.createElement('tr');
+  
 
   row.className = 'table_row';
-  console.log(instanceData.status);
+  //console.log(instanceData.status);
 
   let color = '';
   Object.values(instanceData.status).forEach(function(value) {

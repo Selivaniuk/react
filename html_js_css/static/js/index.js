@@ -9,8 +9,6 @@ async function createInstances() {
   const r = await fetchInstances();
   const q =r.dt_update;
   document.getElementById("dt").innerHTML = q;
-
-  console.log(q);
   r.services.forEach(function(e) {
     addInstance(e);
   })
@@ -65,3 +63,4 @@ function init() {
 document.addEventListener('DOMContentLoaded', () => {
   init();
 })
+setInterval(createInstances, 1000);

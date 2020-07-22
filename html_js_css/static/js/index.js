@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 function fetchInstances() {
   return fetch('http://tech.splinex-team.com:4999/api/table')
@@ -7,6 +6,8 @@ function fetchInstances() {
 }
 
 async function createInstances() {
+  console.log("23");
+  
   const r = await fetchInstances();
   const q = r.dt_update;
 
@@ -17,6 +18,8 @@ async function createInstances() {
   parent.innerHTML = "";
 
   document.getElementById("dt").innerHTML = q;
+  console.log();
+  
 
   r.services.forEach(function(e) {
     addInstance(e);
@@ -30,7 +33,7 @@ async function createInstances() {
 function addInstance(instanceData) {
   const parent = document.getElementById('table');
   const row = document.createElement('tr');
-  //console.log(instanceData);
+  console.log(instanceData);
   
   
 
@@ -38,58 +41,84 @@ function addInstance(instanceData) {
   //console.log(instanceData.status);
   let num = '';
   let color = '';
-  Object.values(instanceData.status).forEach(function(value) {
-    if (value.includes('[OK]')) {
-      color = 'green';
-      num = '1 ';
+  let array =[];
+  
+  Object.values(instanceData).forEach(function(value) {
+    console.log(value);
+     Object.values(instanceData.status).forEach(function(value1) {
+       if (value1.includes('[FAIL]')) {
+         array.push('1 ' + value);      
+         //console.log(value1); 
+       }
+      });
+      Object.values(instanceData.status).forEach(function(value1) {
+        if (value1.includes('[WARNING]')) {
+          array.push('2 ' + value);       
+        }
+       });
+       Object.values(instanceData.status).forEach(function(value1) {
+        if (value1.includes('[OK]')) {
+          array.push('3 ' + value);       
+        }
+       });
+});
+array.sort();
+
+console.log(array);
+
+  // Object.values(instanceData.status).forEach(function(value) {
+  //   if (value.includes('[OK]')) {
+  //     color = 'green';
+  //     num = '1 ';
 
       
 
-    };
-  });
-  Object.values(instanceData.status).forEach(function(value) {
-    if (value.includes('[WARNING]')) {
-      color = 'yellow';
-    };
-  });
-  Object.values(instanceData.status).forEach(function(value) {
-    if (value.includes('[FAIL]')) {
-      color = 'red';
-      num = '3 ';
+  //   };
+  // });
+  // Object.values(instanceData.status).forEach(function(value) {
+  //   if (value.includes('[WARNING]')) {
+  //     color = 'yellow';
+  //   };
+  // });
+  // Object.values(instanceData.status).forEach(function(value) {
+  //   if (value.includes('[FAIL]')) {
+  //     color = 'red';
+  //     num = '3 ';
       
       
-    };
+  //   };
    
     
-  });
-  row.classList.add(color);
+  // });
+  // row.classList.add(color);
   
-  let instanceStatus = "";
-  for (const [key, value] of Object.entries(instanceData.status)) {
-    instanceStatus += `<p>${key}: ${value}</p>`;
-  }
+  // let instanceStatus = "";
+  // for (const [key, value] of Object.entries(instanceData.status)) {
+  //   instanceStatus += `<p>${key}: ${value}</p>`;
+  // }
   
-  row.innerHTML = `
-    <td>${instanceData.name}</td>
-    <td><a href="${instanceData.url}">URL</a></td>
-    <td>${instanceData.deployed}</td>
-    <td>${instanceData.delay_between_tests_sec}</td>
-    <td >${instanceStatus}</td>
-  `;
-  parent.append(row);
-}
+//   row.innerHTML = `
+//     <td>${instanceData.name}</td>
+//     <td><a href="${instanceData.url}">URL</a></td>
+//     <td>${instanceData.deployed}</td>
+//     <td>${instanceData.delay_between_tests_sec}</td>
+//     <td >${instanceStatus}</td>
+//   `;
+//   parent.append(row);
+// }
 function init() {
     createInstances();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('inits');
+  
   init();
 })
+}
 
 //a
 // fetchInstances
 // createNewData
 // sortByStatus
 // drawInstances
-=======
->>>>>>> ca71bc0159d0c6a5f8bf5c1c37c01081916f9de5

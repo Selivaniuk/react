@@ -115,14 +115,10 @@ document.addEventListener('DOMContentLoaded', () => {
   
   init();
 })
-}
+
 
 //a
 // fetchInstances
 // createNewData
 // sortByStatus
-<<<<<<< HEAD
 // drawInstances
-=======
-// drawInstances
->>>>>>> fbaef75bd2127d48a83c658d86ee3737e116eebb

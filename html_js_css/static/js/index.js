@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 function fetchInstances() {
   return fetch('http://tech.splinex-team.com:4999/api/table')
@@ -90,3 +91,5 @@ document.addEventListener('DOMContentLoaded', () => {
 // createNewData
 // sortByStatus
 // drawInstances
+=======
+>>>>>>> ca71bc0159d0c6a5f8bf5c1c37c01081916f9de5

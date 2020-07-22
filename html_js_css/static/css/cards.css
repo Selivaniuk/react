@@ -1,0 +1,13 @@
+.card{
+    border: 1px solid black;
+    background-color: green;
+}
+.error{
+    background-color: red;
+}
+.num{
+    font-size: 18px;
+}
+.core{
+    font-weight: bold;
+}

@@ -9,14 +9,11 @@ async function createInstances() {
   
   const r = await fetchInstances();
   const q = r.dt_update;
-  q.classList.add("qq");
   //console.log(q);
   
   const parent = document.getElementById('table');
-  const par = document.getElementsByClassName('qq');
-
+ 
   parent.innerHTML = "";
-  par.innerHTML = "";
 
   let th1 = document.createElement('th');
   th1.innerHTML="ID";
@@ -45,7 +42,7 @@ async function createInstances() {
     addInstance(e);
   })
 
-  setInterval(createInstances, 1000 );
+   setTimeout(createInstances, 1000 );
   sortTable();
   
   

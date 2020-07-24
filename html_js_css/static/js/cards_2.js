@@ -17,8 +17,11 @@ function createCard({ip, lastUpdate, location, request_url, resp, cores, mem, cp
 
 function createLocationContainer(loc) {
     var div = document.createElement('div');
-    div.className = loc;
+    div.className = `container_${loc}`;
     div.id = loc;
+    div.innerHTML = `
+        <h1>${loc}</h1>
+    `;
     return div;
 }
 

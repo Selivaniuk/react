@@ -1,36 +1,40 @@
 
-.green{
-    background-color: green;
-    order: 2;
-    width: 200px;
-    height: 200px;
-    outline: 2px solid #000;
+.green {
+  background-color: green;
+  order: 2;
+  width: 200px;
+  height: 200px;
+  outline: 2px solid #000000;
 }
-.red{
-    background-color: red;
-    order: 1;
-    width: 200px;
-    height: 200px;
-    outline: 2px solid #000;
-}
-.main{
 
-    display: flex;
-    flex-direction: column;
-    justify-content:start ;
-    align-items:flex-start;
+.red {
+  background-color: red;
+  order: 1;
+  width: 200px;
+  height: 200px;
+  outline: 2px solid #000000;
 }
-.d_1018,.d_1014,.cloud,.svetly,.pervouralsk{
-    display: flex;
-    flex-wrap: wrap;
 
-    
-    margin: 5px;
-    justify-content:start ;
-
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
 }
-.pp{
-    text-decoration: underline ;
-    font-weight: bold;
-    font-size: 20px;
+
+.d_1018,
+.d_1014,
+.cloud,
+.svetly,
+.pervouralsk {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px;
+  justify-content: start;
+}
+
+.pp {
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 20px;
 }

@@ -17,8 +17,8 @@ def cards():
     context = {
         "ts": time()
     }
-    return render_template("cards.html", **context), 200
-
+    return render_template("cards_2.html", **context), 200
+    
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000, debug=True)

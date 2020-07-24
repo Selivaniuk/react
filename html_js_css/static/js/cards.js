@@ -39,7 +39,7 @@ function isErr(lastUpdate){
 function drawCards(cards) {
     let html1 = '';
     for (const l of locs) {
-        const locCards = cards.filter(c=>c.location === l).sort((a, b)=>isErr(b.lastUpdate) - isErr(a.lastUpdate));
+        const locCards = cards.filter(c=>c.location === l).sort((a, b)=>isErr(b.lastUpdate) - isErr(a.lastUpdate)); 
         let locHtml = `<p class="loc-title">${l}</p>`;
         locCards.forEach((c, i)=>{
             locHtml+=`
